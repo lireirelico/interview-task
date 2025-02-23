@@ -1,24 +1,38 @@
-# README
+# Interview Task
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Это базовый Rails-проект, демонстрирующий создание пользователя с использованием ActiveInteraction.
 
-Things you may want to cover:
+## Структура проекта
 
-* Ruby version
+- **app/**
+    - **controllers/**
+        - `users_controller.rb` – контроллер для создания пользователей.
+    - **interactions/**
+        - **users/**
+            - `create.rb` – класс взаимодействия (interaction) для создания пользователя.
+    - **models/**
+        - `user.rb` – модель пользователя.
+        - `interest.rb` – модель интересов.
+        - `skill.rb` – модель навыков.
+        - `user_interest.rb` – join-модель для связи пользователей и интересов.
+        - `user_skill.rb` – join-модель для связи пользователей и навыков.
 
-* System dependencies
+- **config/**
+    - `routes.rb` – маршруты приложения.
 
-* Configuration
+- **db/**
+    - **migrate/** – миграции базы данных.
 
-* Database creation
+- **spec/**
+    - **interactions/**
+        - **users/**
+            - `create_spec.rb` – тесты для класса `Users::Create`.
+    - **requests/** (или **controllers/**)
+        - `users_spec.rb` – тесты для контроллера `UsersController` (API-тесты).
+    - `rails_helper.rb` – конфигурация RSpec.
 
-* Database initialization
+- **.gitlab-ci.yml** – конфигурация GitLab CI для запуска тестов.
 
-* How to run the test suite
+- **.rubocop.yml** – конфигурация RuboCop для проверки стиля кода.
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- **Gemfile** – файл с зависимостями проекта.
