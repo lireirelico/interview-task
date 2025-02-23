@@ -1,0 +1,15 @@
+image: ruby:3.3
+
+stages:
+  - test
+
+before_script:
+  - apt-get update -qq && apt-get install -y nodejs
+  - gem install bundler
+  - bundle install --jobs $(nproc) --retry 3
+  - bundle exec rake db:create db:migrate RAILS_ENV=test
+
+rspec:
+  stage: test
+  script:
+    - bundle exec rspec
